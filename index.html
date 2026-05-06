@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kein Ebindja | Data Scientist Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth; 
+            background-color: #000000;
+            overflow-x: hidden;
+        }
+
+        /* Canvas pour l'animation de fond */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .text-gradient { 
+            background: linear-gradient(to right, #00d2ff, #3a7bd5); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        .glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: all 0.4s ease;
+        }
+
+        .glass:hover {
+            border-color: rgba(0, 210, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.1);
+            transform: translateY(-10px);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #00d2ff; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-white">
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="flex justify-between items-center px-6 md:px-16 py-6 fixed w-full z-[100] backdrop-blur-md border-b border-white/5">
+        <div class="text-2xl font-black tracking-tighter uppercase text-white"><span class="text-sky-400">.</span></div>
+        <div class="space-x-8 hidden md:flex font-bold text-xs uppercase tracking-widest">
+            <a href="#home" class="hover:text-sky-400 transition">Accueil</a>
+            <a href="#about" class="hover:text-sky-400 transition">À Propos</a>
+            <a href="#projects" class="hover:text-sky-400 transition">Projets</a>
+            <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4 relative">
+        <div data-aos="zoom-in" class="mb-6 px-4 py-1 border border-sky-500/30 rounded-full bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-widest">
+            Portfolio Officiel
+        </div>
+        <h1 data-aos="fade-up" data-aos-delay="200" class="text-6xl md:text-8xl font-black mb-4 text-white">
+            Kein <span class="text-gradient">Ebindja</span>
+        </h1>
+        <h2 class="text-2xl md:text-4xl font-bold mb-10 text-white">
+            Je suis <span id="typing" class="text-sky-400"></span>
+        </h2>
+        <div data-aos="fade-up" data-aos-delay="600" class="flex gap-4">
+            <a href="CV_KEIN_EBINDJA.pdf" download class="bg-sky-600 hover:bg-sky-700 text-white px-8 py-4 rounded-2xl font-bold transition shadow-lg shadow-sky-500/20 flex items-center gap-2">
+                <i class='bx bx-download text-xl'></i> Télécharger CV
+            </a>
+            <a href="#contact" class="glass px-8 py-4 rounded-2xl font-bold hover:bg-white/5 transition text-white">Me contacter</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+            <div data-aos="fade-right" class="md:sticky md:top-32 justify-self-center">
+                <div class="relative group mb-8 inline-block">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-sky-600 to-blue-400 rounded-2xl blur opacity-20 group-hover:opacity-50 transition duration-1000"></div>
+                    <div class="relative bg-black rounded-2xl overflow-hidden border border-white/10 w-[280px] md:w-[340px]">
+                        <img src="kein.png" alt="Kein Ebindja" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+
+            <div data-aos="fade-left" class="space-y-8">
+                <div class="prose prose-invert">
+                    <h3 class="text-2xl font-bold text-sky-400">Qui suis-je ?</h3>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Passionné par l'univers de la donnée et de l'intelligence artificielle, j'accompagne les entreprises dans la transformation de leurs données brutes en leviers de décision stratégiques. Mon approche combine rigueur mathématique et créativité technologique.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="glass p-6 rounded-2xl">
+                        <h3 class="text-sky-400 font-bold mb-3 flex items-center gap-2"><i class='bx bx-brain'></i> ML & Deep Learning</h3>
+                        <p class="text-sm text-gray-400 italic">Régression, Arbres de décision, CNN, Transformers, LLM.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl">
+                        <h3 class="text-sky-400 font-bold mb-3 flex items-center gap-2"><i class='bx bx-code-alt'></i> Programmation</h3>
+                        <p class="text-sm text-gray-400 italic">Python, R, SQL, PyTorch, TensorFlow, Pandas.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl">
+                        <h3 class="text-sky-400 font-bold mb-3 flex items-center gap-2"><i class='bx bx-cloud'></i> Cloud & Outils</h3>
+                        <p class="text-sm text-gray-400 italic">GCP, Docker, Power BI, Matplotlib.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-6 max-w-[90rem] mx-auto">
+        <div class="text-center mb-16">
+            <h2 data-aos="fade-up" class="text-4xl font-bold mb-4 italic text-white">Projets et <span class="text-sky-400">Réalisations</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-aos="fade-up" data-aos-delay="100" class="group glass rounded-3xl overflow-hidden">
+                <div class="overflow-hidden bg-sky-900/10"><img src="p1.jpg" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 text-white">Projet 1</h3>
+                    <p class="text-gray-400 text-xs mb-4">Optimisation de la rétention client via des modèles XGBoost.</p>
+                    <a href="https://github.com/keinlarry" target="_blank" class="text-sky-400 hover:text-white transition font-bold text-xs"><i class='bx bxl-github text-lg align-middle'></i> Code Source</a>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" class="group glass rounded-3xl overflow-hidden">
+                <div class="overflow-hidden bg-sky-900/10"><img src="p2.jpg" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 text-white">Projet 2</h3>
+                    <p class="text-gray-400 text-xs mb-4">Analyse automatisée des avis clients avec NLTK et Transformers.</p>
+                    <a href="https://github.com/keinlarry" target="_blank" class="text-sky-400 hover:text-white transition font-bold text-xs"><i class='bx bxl-github text-lg align-middle'></i> Code Source</a>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300" class="group glass rounded-3xl overflow-hidden">
+                <div class="overflow-hidden bg-sky-900/10"><img src="p3.jpg" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 text-white">Projet 3</h3>
+                    <p class="text-gray-400 text-xs mb-4">Détection d'objets en temps réel avec YOLOv8 et OpenCV.</p>
+                    <a href="https://github.com/keinlarry" target="_blank" class="text-sky-400 hover:text-white transition font-bold text-xs"><i class='bx bxl-github text-lg align-middle'></i> Code Source</a>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400" class="group glass rounded-3xl overflow-hidden border-dashed border-sky-500/30">
+                <div class="h-48 bg-sky-900/10 flex items-center justify-center relative">
+                    <i class='bx bx-hourglass bx-spin text-5xl text-sky-500/50'></i>
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="text-lg font-bold mb-2 text-sky-300 italic">Projet 4</h3>
+                    <p class="text-gray-500 text-xs mb-4">Développement en cours...</p>
+                    <span class="text-[10px] uppercase tracking-widest text-sky-500/60 font-bold"><i class='bx bx-loader-alt bx-spin'></i> Loading</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="glass rounded-[40px] p-12 text-center relative overflow-hidden">
+            <h2 data-aos="fade-up" class="text-4xl font-bold mb-4 italic text-white">Contactez-<span class="text-sky-400">moi</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="mailto:kein.ebindja.data@gmail.com" class="flex flex-col items-center p-8 glass rounded-3xl group">
+                    <i class='bx bx-envelope text-4xl mb-4 text-sky-400 group-hover:scale-125 transition'></i>
+                    <span class="text-xs font-bold uppercase text-white">Email</span>
+                    <span class="text-[10px] text-sky-500 opacity-0 group-hover:opacity-100 transition">kein.ebindja.data@gmail.com</span>
+                </a>
+                <a href="tel:+33759601427" class="flex flex-col items-center p-8 glass rounded-3xl group">
+                    <i class='bx bx-phone-call text-4xl mb-4 text-sky-400 group-hover:scale-125 transition'></i>
+                    <span class="text-xs font-bold uppercase text-white">Téléphone</span>
+                    <span class="text-[10px] text-sky-500 opacity-0 group-hover:opacity-100 transition">+33 7 59 60 14 27</span>
+                </a>
+                <a href="https://www.linkedin.com/in/kein-e-60256734a" target="_blank" class="flex flex-col items-center p-8 glass rounded-3xl group">
+                    <i class='bx bxl-linkedin text-4xl mb-4 text-sky-400 group-hover:scale-125 transition'></i>
+                    <span class="text-xs font-bold uppercase text-white">LinkedIn</span>
+                </a>
+                <a href="https://github.com/keinlarry" target="_blank" class="flex flex-col items-center p-8 glass rounded-3xl group">
+                    <i class='bx bxl-github text-4xl mb-4 text-sky-400 group-hover:scale-125 transition'></i>
+                    <span class="text-xs font-bold uppercase text-white">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+    <script>
+        // 1. Initialisation AOS et Typed
+        AOS.init({ duration: 1200, once: false });
+        new Typed("#typing", { strings: ["Data Scientist"], typeSpeed: 80, backSpeed: 50, loop: true });
+
+        // 2. ANIMATION DES PARTICULES (CANVAS)
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(0, 210, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            particles = [];
+            const count = (canvas.width * canvas.height) / 10000;
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            initCanvas();
+            createParticles();
+        });
+
+        initCanvas();
+        createParticles();
+        animate();
+    </script>
+</body>
+</html>
